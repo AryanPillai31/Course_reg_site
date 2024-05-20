@@ -1,86 +1,160 @@
+/* registration.css */
 body {
-  background-color: #EAECEE ;
+  font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  font-family: Arial, sans-serif;
 }
 
-
 .navbar1 {
-  background-color: #808B96;
-  overflow: hidden;
-  display: flex; /* Make the navbar a flex container */
-  align-items: center; /* Center items vertically */
-  justify-content: space-between; /* Add space between the items */
-  padding: 10px 20px; /* Add padding to the navbar */
+  background-color: #333;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
 }
 
 .logo {
-  width: 75px; /* Adjust the width of the logo */
+  height: 40px;
 }
 
 .btn-group_item1 {
-  font-weight: bold;
-  background-color: #808B96;
-  color: black;
-  padding: 10px 20px;
-  margin: 0 5px;
+  background-color: #d32f2f;
+  color: white;
   border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
   cursor: pointer;
-  transition: color 0.3s, border-bottom 0.3s;
-  border-bottom: 2px solid transparent;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
 }
 
 .btn-group_item1:hover {
-  color: #fff;
-  border-bottom: 2px solid #fff;
+  background-color: #b32727;
 }
 
-.btn-group_item1:focus {
-  outline: none;
-}
-.navbar-container {
-  display: flex;
-  justify-content: center;
-  width: 50%;
-  position: absolute;
-  top: 100px; /* Adjust this value to move the navbar lower */
-  left: 350px;
-}
-
-.navbar {
-  background-color: #fff;
-  width: 70%;
-  display: flex;
-  justify-content: center;
-  padding: 10px 0;
-  overflow: hidden;
+.sidebar {
+  background-color: #f1f1f1;
+  width: 200px;
+  height: 100vh;
+  position: fixed;
+  top: 60px;
+  left: 0;
+  overflow-x: hidden;
+  padding-top: 20px;
 }
 
-.btn-group {
-  display: flex;
-  justify-content: center;
-  padding: 5px;
-}
-
-.btn-group_item {
-  font-weight: bold;
-  background-color: #fff;
-  color: #333;
-  padding: 10px 20px;
-  margin: 0 5px;
+.sidebar button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  text-align: left;
   border: none;
+  background-color: transparent;
   cursor: pointer;
-  transition: color 0.3s, background-color 0.3s, border-bottom 0.3s;
-  border-bottom: 2px solid transparent;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
 }
 
-.btn-group_item:hover {
-  background-color: #fff;
-  color: #C433FF;
-  border-bottom: 2px solid #C433FF;
+.sidebar button.active {
+  background-color: #ddd;
 }
 
-.btn-group_item:focus {
-  outline: none
+.sidebar button:hover {
+  background-color: #555;
+  color: white;
+}
+
+.content {
+  margin-left: 200px;
+  padding: 20px;
+}
+
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* Style for the table */
+table {
+  width: 80%;
+  border-collapse: collapse;
+  margin-top: 20px; /* Added margin to separate from the tabs */
+}
+
+/* Style for table headers */
+th, td {
+  padding: 8px;
+  border-bottom: 1px solid #ddd;
+  text-align: left;
+}
+
+/* Style for table rows */
+tr:hover {
+  background-color: #f5f5f5;
+}
+
+/* Add a background color to the active tab */
+.active {
+  background-color: #ddd;
+}
+
+/* Style for checkboxes */
+input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #d32f2f;
+  border-radius: 4px;
+  outline: none;
+  cursor: pointer;
+  vertical-align: middle;
+  position: relative;
+}
+
+input[type="checkbox"]:checked {
+  background-color: #d32f2f;
+}
+
+input[type="checkbox"]:checked::after {
+  content: "\2713";
+  font-size: 14px;
+  color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Style for "Approve Selected" button */
+button[onClick*="approveSelectedStudents"] {
+  background-color: #d32f2f;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+button[onClick*="approveSelectedStudents"]:hover {
+  background-color: #b32727;
 }
