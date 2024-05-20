@@ -1,4 +1,3 @@
-/* registration.jsx */
 import React, { useState } from 'react';
 import './registration.css';
 
@@ -7,21 +6,20 @@ const Registration = () => {
   const [selectedStudents, setSelectedStudents] = useState([]);
   const [approvedData, setApprovedData] = useState([]);
   const [deniedData, setDeniedData] = useState([]);
+  const [dummyData, setDummyData] = useState([
+    { id: 1, name: 'Aryan', usn: '1BM21CS001', courses: ['Math', 'Science', 'History'] },
+    { id: 2, name: 'Jane', usn: '1BM21CS007', courses: ['English', 'Physics', 'Geography'] },
+    { id: 3, name: 'Alice', usn: '1BM21CS067', courses: ['Chemistry', 'Biology', 'Art'] },
+  ]);
 
   const handleTabClick = (tab) => {
     setActiveTab(tab);
   };
 
-  const dummyData = [
-    { id: 1, name: 'Aryan', usn: '1BM21CS001', courses: ['Math', 'Science', 'History'] },
-    { id: 2, name: 'Jane', usn: '1BM21CS007', courses: ['English', 'Physics', 'Geography'] },
-    { id: 3, name: 'Alice', usn: '1BM21CS067', courses: ['Chemistry', 'Biology', 'Art'] },
-  ];
-
   const toggleStudentSelection = (student) => {
-    const isSelected = selectedStudents.includes(student);
+    const isSelected = selectedStudents.some((s) => s.id === student.id);
     if (isSelected) {
-      setSelectedStudents(selectedStudents.filter((s) => s !== student));
+      setSelectedStudents(selectedStudents.filter((s) => s.id !== student.id));
     } else {
       setSelectedStudents([...selectedStudents, student]);
     }
@@ -31,14 +29,27 @@ const Registration = () => {
     setApprovedData([...approvedData, ...selectedStudents]);
     setDeniedData(deniedData.filter((s) => !selectedStudents.includes(s)));
     setSelectedStudents([]);
+
     // Remove selected students from 'Yet to Approve'
-    dummyData = dummyData.filter((student) => !selectedStudents.includes(student));
+    const remainingStudents = dummyData.filter((student) => !selectedStudents.includes(student));
+    setDummyData(remainingStudents);
+  };
+
+  const denySelectedStudents = () => {
+    setDeniedData([...deniedData, ...selectedStudents]);
+    setSelectedStudents([]);
+
+    // Remove selected students from 'Yet to Approve'
+    const remainingStudents = dummyData.filter((student) => !selectedStudents.includes(student));
+    setDummyData(remainingStudents);
   };
 
   const reviewStudent = (student) => {
     setApprovedData(approvedData.filter((s) => s !== student));
-    dummyData.push(student); // Assuming you're adding the student back to the 'Yet to Approve' tab
+    setDummyData([...dummyData, student]);
+    setDeniedData(deniedData.filter((s) => s !== student));
   };
+  
 
   return (
     <>
@@ -111,7 +122,7 @@ const Registration = () => {
                   <td>{student.usn}</td>
                   <td>{student.courses.join(', ')}</td>
                   <td>
-                    <button>View</button>
+                    <button onClick={() => reviewStudent(student)}>View</button>
                   </td>
                 </tr>
               ))}
@@ -131,7 +142,7 @@ const Registration = () => {
             </thead>
             <tbody>
               {dummyData.map((student) => (
-                <tr key={student.id}>
+                <tr key={`${student.id}-${activeTab}`}>
                   <td>{student.name}</td>
                   <td>{student.usn}</td>
                   <td>{student.courses.join(', ')}</td>
@@ -139,7 +150,7 @@ const Registration = () => {
                     <input
                       type="checkbox"
                       onChange={() => toggleStudentSelection(student)}
-                      checked={selectedStudents.includes(student)}
+                      checked={selectedStudents.some((s) => s.id === student.id)}
                     />
                   </td>
                 </tr>
@@ -147,6 +158,8 @@ const Registration = () => {
             </tbody>
           </table>
           <button onClick={approveSelectedStudents}>Approve Selected</button>
+          <button onClick={denySelectedStudents}>Deny Selected</button>
+          
         </div>
       </div>
     </>

@@ -3,10 +3,11 @@ body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
+  background-color: #e6e6e6;
 }
 
 .navbar1 {
-  background-color: #333;
+  background-color: #7f7d7e;
   color: white;
   display: flex;
   justify-content: space-between;
@@ -19,7 +20,7 @@ body {
 }
 
 .btn-group_item1 {
-  background-color: #d32f2f;
+  background-color: #027afd;
   color: white;
   border: none;
   padding: 10px 20px;
@@ -34,7 +35,7 @@ body {
 }
 
 .btn-group_item1:hover {
-  background-color: #b32727;
+  background-color: #027afd;
 }
 
 .sidebar {
@@ -102,12 +103,12 @@ th, td {
 
 /* Style for table rows */
 tr:hover {
-  background-color: #f5f5f5;
+  background-color: #525050;
 }
 
 /* Add a background color to the active tab */
 .active {
-  background-color: #ddd;
+  background-color: #f8f8f8;
 }
 
 /* Style for checkboxes */
@@ -117,7 +118,7 @@ input[type="checkbox"] {
   -moz-appearance: none;
   width: 20px;
   height: 20px;
-  border: 2px solid #d32f2f;
+  border: 2px solid #2f3fd3;
   border-radius: 4px;
   outline: none;
   cursor: pointer;
@@ -126,7 +127,7 @@ input[type="checkbox"] {
 }
 
 input[type="checkbox"]:checked {
-  background-color: #d32f2f;
+  background-color: #2f32d3;
 }
 
 input[type="checkbox"]:checked::after {
@@ -141,7 +142,7 @@ input[type="checkbox"]:checked::after {
 
 /* Style for "Approve Selected" button */
 button[onClick*="approveSelectedStudents"] {
-  background-color: #d32f2f;
+  background-color: #2f34d3;
   color: white;
   border: none;
   padding: 10px 20px;
@@ -156,5 +157,5 @@ button[onClick*="approveSelectedStudents"] {
 }
 
 button[onClick*="approveSelectedStudents"]:hover {
-  background-color: #b32727;
+  background-color: #027afd;
 }
