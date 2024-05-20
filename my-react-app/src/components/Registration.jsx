@@ -49,7 +49,14 @@ const Registration = () => {
     setDummyData([...dummyData, student]);
     setDeniedData(deniedData.filter((s) => s !== student));
   };
-  
+
+  const selectAll = () => {
+    setSelectedStudents(dummyData);
+  };
+
+  const clearSelection = () => {
+    setSelectedStudents([]);
+  };
 
   return (
     <>
@@ -157,9 +164,12 @@ const Registration = () => {
               ))}
             </tbody>
           </table>
+          <div className='BoxButtons'>
+          <button onClick={selectAll}>Select All</button>
+          <button onClick={clearSelection}>Clear Selection</button>
           <button onClick={approveSelectedStudents}>Approve Selected</button>
           <button onClick={denySelectedStudents}>Deny Selected</button>
-          
+            </div>    
         </div>
       </div>
     </>

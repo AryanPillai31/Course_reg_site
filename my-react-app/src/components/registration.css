@@ -159,3 +159,7 @@ button[onClick*="approveSelectedStudents"] {
 button[onClick*="approveSelectedStudents"]:hover {
   background-color: #027afd;
 }
+.BoxButtons{
+  display: flex;
+  margin: 10px;
+}
