@@ -87,6 +87,10 @@ const Registration = () => {
       <div className="content">
         <div className={`tab-content ${activeTab === 'approved' ? 'active' : ''}`} id="tab-approved">
           <h2>Approved</h2>
+          <div className="button-container">
+            <button onClick={selectAll}>Select All</button>
+            <button onClick={clearSelection}>Clear Selection</button>
+          </div>
           <table className="verify-courses-table">
             <thead>
               <tr>
@@ -103,7 +107,7 @@ const Registration = () => {
                   <td>{student.usn}</td>
                   <td>{student.courses.join(', ')}</td>
                   <td>
-                    <button>View</button>
+                    
                     <button onClick={() => reviewStudent(student)}>Review</button>
                   </td>
                 </tr>
@@ -113,6 +117,10 @@ const Registration = () => {
         </div>
         <div className={`tab-content ${activeTab === 'denied' ? 'active' : ''}`} id="tab-denied">
           <h2>Denied</h2>
+          <div className="button-container">
+            <button onClick={selectAll}>Select All</button>
+            <button onClick={clearSelection}>Clear Selection</button>
+          </div>
           <table className="verify-courses-table">
             <thead>
               <tr>
@@ -129,7 +137,8 @@ const Registration = () => {
                   <td>{student.usn}</td>
                   <td>{student.courses.join(', ')}</td>
                   <td>
-                    <button onClick={() => reviewStudent(student)}>View</button>
+                    
+                    <button onClick={() => reviewStudent(student)}>Review</button>
                   </td>
                 </tr>
               ))}
@@ -138,6 +147,12 @@ const Registration = () => {
         </div>
         <div className={`tab-content ${activeTab === 'yet-to-approve' ? 'active' : ''}`} id="tab-yet-to-approve">
           <h2>Yet to Approve</h2>
+          <div className="button-container">
+            <button onClick={selectAll}>Select All</button>
+            <button onClick={clearSelection}>Clear Selection</button>
+            <button onClick={approveSelectedStudents}>Approve Selected</button>
+            <button onClick={denySelectedStudents}>Deny Selected</button>
+          </div>
           <table className="verify-courses-table">
             <thead>
               <tr>
@@ -164,12 +179,6 @@ const Registration = () => {
               ))}
             </tbody>
           </table>
-          <div className='BoxButtons'>
-          <button onClick={selectAll}>Select All</button>
-          <button onClick={clearSelection}>Clear Selection</button>
-          <button onClick={approveSelectedStudents}>Approve Selected</button>
-          <button onClick={denySelectedStudents}>Deny Selected</button>
-            </div>    
         </div>
       </div>
     </>
