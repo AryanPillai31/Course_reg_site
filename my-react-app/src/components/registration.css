@@ -1,0 +1,86 @@
+body {
+  background-color: #EAECEE ;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+
+.navbar1 {
+  background-color: #808B96;
+  overflow: hidden;
+  display: flex; /* Make the navbar a flex container */
+  align-items: center; /* Center items vertically */
+  justify-content: space-between; /* Add space between the items */
+  padding: 10px 20px; /* Add padding to the navbar */
+}
+
+.logo {
+  width: 75px; /* Adjust the width of the logo */
+}
+
+.btn-group_item1 {
+  font-weight: bold;
+  background-color: #808B96;
+  color: black;
+  padding: 10px 20px;
+  margin: 0 5px;
+  border: none;
+  cursor: pointer;
+  transition: color 0.3s, border-bottom 0.3s;
+  border-bottom: 2px solid transparent;
+}
+
+.btn-group_item1:hover {
+  color: #fff;
+  border-bottom: 2px solid #fff;
+}
+
+.btn-group_item1:focus {
+  outline: none;
+}
+.navbar-container {
+  display: flex;
+  justify-content: center;
+  width: 50%;
+  position: absolute;
+  top: 100px; /* Adjust this value to move the navbar lower */
+  left: 350px;
+}
+
+.navbar {
+  background-color: #fff;
+  width: 70%;
+  display: flex;
+  justify-content: center;
+  padding: 10px 0;
+  overflow: hidden;
+}
+
+.btn-group {
+  display: flex;
+  justify-content: center;
+  padding: 5px;
+}
+
+.btn-group_item {
+  font-weight: bold;
+  background-color: #fff;
+  color: #333;
+  padding: 10px 20px;
+  margin: 0 5px;
+  border: none;
+  cursor: pointer;
+  transition: color 0.3s, background-color 0.3s, border-bottom 0.3s;
+  border-bottom: 2px solid transparent;
+}
+
+.btn-group_item:hover {
+  background-color: #fff;
+  color: #C433FF;
+  border-bottom: 2px solid #C433FF;
+}
+
+.btn-group_item:focus {
+  outline: none
+}
